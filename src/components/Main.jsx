@@ -5,7 +5,7 @@ import './css/App.css'
 
 const  Main= () => {
   return (
-    <div className='main-header h-96' >
+    <div className='main-header h-full' >
             <Header/>
             <Body/>
             
