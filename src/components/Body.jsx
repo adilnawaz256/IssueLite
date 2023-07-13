@@ -1,36 +1,31 @@
 import React from 'react'
 import IssueCard from './IssueCard'
 import { usefetch } from '../utils/usefetch'
+import ShimmerCard from './ShimmerCard'
 
-let count = 0
 const Body = () => {
-    const IssueData = usefetch('https://api.github.com/repos/facebook/react/issues')
-    // console.log(IssueData)
-    const {data} = IssueData.ApiData
-    // console.log(data);
-    if (!data) return <h1>Laoding...</h1>
-    console.log(count);
-   return (
-  <>
-  <div className=''>
-  {
-    data.map((ele)=>{
-    
-      return(
-        <>
-<IssueCard issues ={ele}/>
-<hr/>
-        </>
-      )
+  const IssueData = usefetch('https://api.github.com/repos/facebook/react/issues')
+  const { data } = IssueData.ApiData
+  return (
+    <>
+      <div className=''>
 
-    })
+        {
+          (!data) ? <ShimmerCard /> : data.map((ele) => {
 
-  }
-      
+            return (
+              <>
+                <IssueCard issues={ele} />
+                <hr />
+              </>
+            )
+
+          })
+
+        }
+
       </div>
-  
-  
-  </>
+    </>
   )
 }
 
