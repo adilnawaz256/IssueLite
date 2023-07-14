@@ -1,0 +1,12 @@
+.issue-container{
+    width: 67vw;
+    height: 65vh;
+   
+    margin-top: 20px;
+    margin-left: 10%;
+    text-align: center;
+}
+.issue-container> h3{
+    position: relative;
+    top: 49%;
+}
