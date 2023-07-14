@@ -1,21 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import IssueCard from './IssueCard'
-import { usefetch } from '../utils/usefetch'
 import ShimmerCard from './ShimmerCard'
+import { Link } from 'react-router-dom'
 
-const Body = () => {
-  const IssueData = usefetch('https://api.github.com/repos/facebook/react/issues')
-  const { data } = IssueData.ApiData
+
+const Body = ({IssuesDatas}) => {
+
   return (
     <>
       <div className=''>
 
         {
-          (!data) ? <ShimmerCard /> : data.map((ele) => {
+          (!IssuesDatas) ? <ShimmerCard /> : IssuesDatas?.map((ele) => {
 
             return (
               <>
-                <IssueCard issues={ele} />
+             <Link to={`issues/${ele.number}`}>
+                <IssueCard issues={ele}  key={ele.id}/>
+                </Link>
                 <hr />
               </>
             )
@@ -23,7 +25,6 @@ const Body = () => {
           })
 
         }
-
       </div>
     </>
   )
