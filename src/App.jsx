@@ -8,7 +8,7 @@ import IssueComponents from './components/IssueComponents';
 
 
 
-const URL = "https://api.github.com/repos/facebook/react/issues?per_page=200";
+const URL = "https://api.github.com/repos/facebook/react/issues?per_page=100";
 
 function App() {
   const GithubResponseData = usefetch(URL);
